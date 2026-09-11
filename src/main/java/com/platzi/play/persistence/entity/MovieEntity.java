@@ -1,4 +1,4 @@
-package com.platzi.play.persistence;
+package com.platzi.play.persistence.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
