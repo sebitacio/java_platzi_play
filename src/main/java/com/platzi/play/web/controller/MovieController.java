@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.platzi.play.domain.dto.MovieDto;
 import com.platzi.play.domain.service.MovieService;
@@ -21,7 +22,7 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<MovieDto> getAll() {
         return (List<MovieDto>) this.movieService.getAll();
     }
