@@ -2,12 +2,15 @@ package com.platzi.play.domain.dto;
 
 import java.time.LocalDate;
 
+import com.platzi.play.domain.Genre;
+
 public record MovieDto(
     String title,
     Integer duration,
-    String genre,
+    Genre genre,
     LocalDate releaseDate,
-    Double rating
+    Double rating,
+    Boolean status
 ){
 
 }

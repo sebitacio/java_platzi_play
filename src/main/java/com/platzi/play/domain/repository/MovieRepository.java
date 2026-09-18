@@ -6,4 +6,5 @@ import com.platzi.play.domain.dto.MovieDto;
 
 public interface MovieRepository {
     List<MovieDto> getAll();
+    MovieDto getById(long id);
 }
