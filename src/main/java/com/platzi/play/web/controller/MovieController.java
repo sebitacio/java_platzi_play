@@ -2,6 +2,7 @@ package com.platzi.play.web.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,12 +24,18 @@ public class MovieController {
     }
 
     @GetMapping
-    public List<MovieDto> getAll() {
-        return (List<MovieDto>) this.movieService.getAll();
+    public ResponseEntity<List<MovieDto>> getAll() {
+        return ResponseEntity.ok((List<MovieDto>) this.movieService.getAll());
     }
     
     @GetMapping("/{id}")
-    public MovieDto getMovieById(@PathVariable long id) {
-        return this.movieService.getById(id);
+    public ResponseEntity<MovieDto> getMovieById(@PathVariable long id) {
+        
+        MovieDto movie = this.movieService.getById(id);
+        if (movie != null) {
+            return ResponseEntity.ok(movie);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
